@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Educational Platform - Community</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light mx-auto" style="background: lightblue">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img th:src="@{107765.png}" style="height: 60px; width: 60px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/fixYourStuff">Fix Your Stuff</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/community">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log in / Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="text-align: center; margin-top: 50px;">
+    <h3>Community</h3>
+</div>
+
+<div class="container" style="text-align: right; margin-top: 50px;">
+    <a th:href="@{/addThread}" class="btn border-dark" style="border-radius: 10px; background: lightblue;"><b>Add a thread</b></a>
+</div>
+
+<div class="container" style="text-align: center; margin-top: 20px;">
+    <table class="table table-secondary table-bordered border-dark">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Thread name</th>
+            <th scope="col">Posted by</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td style="text-align: left">My IPhone 6 Broke down... Anyone can help?</td>
+            <td style="text-align: left"><i>user1_new</i></td>
+        </tr>
+        <tr th:each="th: ${threadList}">
+            <th scope="row" th:value="${th.numberRow}" th:text="${th.numberRow}"></th>
+            <td style="text-align: left" th:text="${th.nameOfThread}"></td>
+            <td style="text-align: left" th:text="${th.postedBy}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
